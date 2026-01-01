@@ -34,6 +34,11 @@ defmodule LittlechatWeb.Router do
     # as long as you are also using SSL (which you should anyway).
     import Phoenix.LiveDashboard.Router
 
+    scope "/room" do
+      live "/new", Room.NewLive, :new
+      live "/:slug", Room.ShowLive, :show
+    end
+
     scope "/dev" do
       pipe_through :browser
 
